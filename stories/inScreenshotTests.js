@@ -5,5 +5,6 @@
 //  You may not use this file except in compliance with the License.
 
 export default function inScreenshotTests() {
-  return navigator.userAgent.includes("HeadlessChrome");
+  // screenshot tests are not always in a headless Chrome, so need to check for "selectedKind" in the URL as well.
+  return navigator.userAgent.includes("HeadlessChrome") || window.location.search.includes("selectedKind");
 }
